@@ -9,7 +9,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background-color: rgb(18 92 114);
+  background-color: rgb(21 19 141);
 }
 
 .main-section {
@@ -21,7 +21,7 @@ body {
   z-index: 900;
 }
 
-h4 {
+p {
   color: gray;
   text-align: start;
   margin-left: 0.9rem;

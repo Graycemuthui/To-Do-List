@@ -1,13 +1,13 @@
-import "./styles.css";
-import { items } from "./modules/tasks";
+import './styles.css';
+import items from './modules/tasks.js';
 
-const listItems = document.getElementById("todo-items");
+const listItems = document.getElementById('todo-items');
 const displayList = () => {
   for (let i = 0; i < items.length; i += 1) {
     const loop = listItems.innerHTML;
-    let boxes = "";
+    let boxes = '';
     if (items[i].completed === true) {
-      boxes = "checked";
+      boxes = 'checked';
     }
     listItems.innerHTML = `
                <li>
