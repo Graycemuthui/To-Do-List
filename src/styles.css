@@ -107,7 +107,7 @@ input:focus {
 .wave {
   position: fixed;
   opacity: 0.4;
-  top: 3%;
+  top: 20%;
   left: 10%;
   background: #0af;
   width: 1500px;
