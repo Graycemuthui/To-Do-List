@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Hello Webpack</title>
-    <script src="https://unpkg.com/lodash@4.17.20"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/716817a6e7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>To-Do-List</title>
   </head>
   <body>
-    <script src="./src/index.js"></script>
+    <section class="main-section">
+      <div class="headline">
+        <span>
+          <h4>Demo</h4>
+        </span>
+        <span class="rotate"><i class="fa-solid fa-rotate"></i></span>
+      </div>
+      <form class="list-form">
+        <div class="list-section">
+          <span
+            ><input type="text" class="new-list" placeholder="Add to your list"
+          /></span>
+          <span class="arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        </div>
+
+        <!-- List Section -->
+        <ul id="todo-items"></ul>
+        <input type="button" value="Clear all completed" />
+      </form>
+    </section>
+
+    <!-- Background -->
+    <div class="box">
+      <div class="wave -one"></div>
+      <div class="wave -two"></div>
+      <div class="wave -three"></div>
+    </div>
   </body>
 </html>
