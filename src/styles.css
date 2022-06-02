@@ -1,3 +1,261 @@
-h1 {
-  color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: rgb(18 92 114);
+}
+
+.main-section {
+  background-color: #fff;
+  width: 50%;
+  margin: 8rem auto;
+  border: 1px solid gainsboro;
+  text-align: start;
+  z-index: 900;
+}
+
+h4 {
+  color: gray;
+  text-align: start;
+  margin-left: 0.9rem;
+}
+
+.headline {
+  border-bottom: 1px solid rgb(231, 219, 219);
+  color: gray;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.rotate,
+.arrow {
+  text-align: end;
+}
+
+.fa-rotate {
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+}
+
+.fa-arrow-left {
+  padding: 0.9rem 0.5rem;
+  font-size: 0.7rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+#todo-items li {
+  list-style-type: none;
+}
+
+.list-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr 1fr 0.5fr);
+  align-items: center;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid rgb(231, 219, 219);
+}
+
+.text-input {
+  grid-column: 2/9;
+}
+
+.hide {
+  display: none;
+}
+
+.icons {
+  text-align: right;
+  padding-right: 1rem;
+  color: gray;
+}
+
+.list-section {
+  border-bottom: 1px solid rgb(231, 219, 219);
+  color: gray;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* CSS animation */
+.box {
+  position: fixed;
+  top: 0;
+  transform: rotate(80deg);
+  left: 0;
+  bottom: -140%;
+  right: 90%;
+}
+
+/* stylelint-disable */
+.wave {
+  position: fixed;
+  opacity: 0.4;
+  top: 3%;
+  left: 10%;
+  background: #0af;
+  width: 1500px;
+  height: 1300px;
+  margin-left: -150px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 7000ms infinite linear;
+}
+
+/* stylelint-enable */
+
+.wave.-three {
+  animation: drift 7500ms infinite linear;
+  position: fixed;
+  background-color: #77daff;
+}
+
+.wave.-two {
+  animation: drift 3000ms infinite linear;
+  opacity: 0.1;
+  background: black;
+  position: fixed;
+}
+
+.box::after {
+  content: "";
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+/* LOADING SPACE */
+
+.contain {
+  animation-delay: 4s;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #25a7d7;
+  background: -webkit-linear-gradient(#25a7d7, #2962ff);
+  background: linear-gradient(#25a7d7, #25a7d7);
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 5px;
+}
+
+.icon img {
+  -webkit-animation: anim 2s ease infinite;
+  animation: anim 2s ease infinite;
+  -webkit-transform: scale(0, 0) rotateZ(180deg);
+  transform: scale(0, 0) rotateZ(180deg);
+}
+
+/* Animation */
+.icon:nth-child(2) img {
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.icon:nth-child(3) img {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.icon:nth-child(4) img {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+@-webkit-keyframes anim {
+  0% {
+    -webkit-transform: scale(0, 0) rotateZ(-90deg);
+    transform: scale(0, 0) rotateZ(-90deg);
+    opacity: 0;
+  }
+
+  30% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: scale(0, 0) rotateZ(90deg);
+    transform: scale(0, 0) rotateZ(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes anim {
+  0% {
+    -webkit-transform: scale(0, 0) rotateZ(-90deg);
+    transform: scale(0, 0) rotateZ(-90deg);
+    opacity: 0;
+  }
+
+  30% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1;
+  }
+
+  50% {
+    -webkit-transform: scale(1, 1) rotateZ(0deg);
+    transform: scale(1, 1) rotateZ(0deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: scale(0, 0) rotateZ(90deg);
+    transform: scale(0, 0) rotateZ(90deg);
+    opacity: 0;
+  }
 }
