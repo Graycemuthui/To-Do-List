@@ -1,5 +1,6 @@
-import { items } from "./tasks";
+import items from './tasks.js';
 
+/* eslint-disable */
 export class Actions {
   static showTrash = (i) => {
     // show the trash icon and hide the ellipsis icon

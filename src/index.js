@@ -1,15 +1,14 @@
-import "./styles.css";
-import { items } from "./modules/tasks.js";
-import { Actions } from "./modules/actions.js";
+import './styles.css';
+import items from './modules/tasks.js';
+import { Actions } from './modules/actions.js';
 
-const listItems = document.getElementById("todo-items");
+const listItems = document.getElementById('todo-items');
 const displayList = () => {
-  let listHtml = "";
-  console.log(items);
+  let listHtml = '';
   items.forEach((item) => {
-    let boxes = "";
+    let boxes = '';
     if (item.completed === true) {
-      boxes = "checked";
+      boxes = 'checked';
     }
     listHtml += `
                <li id="list-${item.index}">
@@ -32,29 +31,28 @@ const displayList = () => {
   listItems.innerHTML = listHtml;
 
   // Create event listener for list-item class
-  const allTasks = document.getElementsByClassName("list-item");
+  const allTasks = document.getElementsByClassName('list-item');
 
   // Create event listener for allTasks
-  for (let i = 0; i < allTasks.length; i++) {
+  for (let i = 0; i < allTasks.length; i += 1) {
     // get all li
-    const lis = document.getElementsByTagName("li");
+    const lis = document.getElementsByTagName('li');
     // create event listner for all li
-    lis[i].addEventListener("mouseover", (e) => {
-      lis[i].classList.add("list-item-hover");
+    lis[i].addEventListener('mouseover', () => {
+      lis[i].classList.add('list-item-hover');
       Actions.showTrash(i);
     });
 
-    lis[i].addEventListener("mouseout", (e) => {
+    lis[i].addEventListener('mouseout', () => {
       Actions.hideTrash(i);
-      lis[i].classList.remove("list-item-hover");
+      lis[i].classList.remove('list-item-hover');
     });
 
-    allTasks[i].addEventListener("keypress", (event) => {
-      if (event.key === "Enter") {
-        console.log(event);
+    allTasks[i].addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
         event.preventDefault();
         // Get the value of the user-input
-        const value = event.target.value;
+        const { value } = event.target;
 
         if (Actions.addTask(value, i)) {
           // Refresh the task list.
@@ -64,7 +62,7 @@ const displayList = () => {
     });
 
     // Create an event listener on the trash icon
-    document.getElementById(`trash-${i}`).addEventListener("click", (e) => {
+    document.getElementById(`trash-${i}`).addEventListener('click', () => {
       if (Actions.removeTask(i)) {
         displayList();
       }
@@ -74,12 +72,12 @@ const displayList = () => {
 
 displayList();
 
-const addList = document.getElementById("addlist");
+const addList = document.getElementById('addlist');
 
-addList.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
+addList.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
     event.preventDefault();
-    const value = addList.value;
+    const { value } = addList;
     // Add value to task array
     items.push({
       description: value,
@@ -87,12 +85,11 @@ addList.addEventListener("keypress", (event) => {
       index: items.length,
     });
     // Clear input
-    addList.value = "";
+    addList.value = '';
 
     // Store in local storage
-    localStorage.setItem("tasks", JSON.stringify(items));
+    localStorage.setItem('tasks', JSON.stringify(items));
 
-    console.log(items);
     displayList();
   }
 });
