@@ -25,25 +25,39 @@
         </div>
         <span class="rotate"><i class="fa-solid fa-rotate"></i></span>
       </div>
-      <form class="list-form">
-        <div class="list-section">
-          <span
-            ><input type="text" class="new-list" placeholder="Add to your list"
-          /></span>
-          <span class="arrow"><i class="fa-solid fa-arrow-left"></i></span>
-        </div>
 
-        <!-- List Section -->
-        <ul id="todo-items"></ul>
-        <input type="button" value="Clear all completed" />
-      </form>
+      <div class="list-section">
+        <span
+          ><input
+            type="text"
+            id="addlist"
+            class="new-list"
+            placeholder="Add to your list"
+        /></span>
+        <span class="arrow"><i class="fa-solid fa-arrow-left"></i></span>
+      </div>
+
+      <!-- List Section -->
+      <ul id="todo-items"></ul>
+      <input type="button" value="Clear all completed" />
     </section>
 
     <!-- Background -->
-    <div class="box">
-      <div class="wave -one"></div>
-      <div class="wave -two"></div>
-      <div class="wave -three"></div>
+    <div class="context"></div>
+
+    <div class="area">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
   </body>
 </html>
