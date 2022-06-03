@@ -101,8 +101,8 @@ input:focus {
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
