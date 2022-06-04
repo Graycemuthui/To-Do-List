@@ -7,17 +7,20 @@ const displayList = () => {
   let listHtml = '';
   items.forEach((item) => {
     let boxes = '';
+    let checkMark = '';
     if (item.completed === true) {
       boxes = 'checked';
+      checkMark = 'check-mark';
     }
     listHtml += `
                <li id="list-${item.index}">
             <div class="list-wrap">
-              <div><input id="checkbox" type="checkbox" ${boxes}/></div>
+              <div><input id="checkbox-${item.index}" name="ch-${item.index}" type="checkbox" ${boxes}/></div>
               <div  id= "text-input" class="text-input">
                 <input
+                  id="task-desc-${item.index}"
                   type="text"
-                  class="list-item"
+                  class="list-item ${checkMark}"
                   value="${item.description}"
                 />
               </div>
@@ -67,6 +70,22 @@ const displayList = () => {
         displayList();
       }
     });
+
+    // Let's add an event listener to the checkbox
+    const checkbox = document.getElementById(`checkbox-${i}`);
+    checkbox.addEventListener('click', () => {
+      // add checked class to the input
+      document.querySelector(`#task-desc-${i}`).classList.add('checked-mark');
+
+      if (checkbox.checked) {
+        items[i].completed = true;
+      } else {
+        items[i].completed = false;
+      }
+      // Update the items in our array
+      localStorage.setItem('tasks', JSON.stringify(items));
+      displayList();
+    });
   }
 };
 
@@ -92,4 +111,23 @@ addList.addEventListener('keypress', (event) => {
 
     displayList();
   }
+});
+
+// Create an event listener for the clear all button
+const clearAll = document.getElementById('clear-all');
+clearAll.addEventListener('click', () => {
+  // Remove al completed tasks
+  const clear = items.filter((item) => item.completed === true);
+
+  clear.forEach((item) => {
+    items.splice(item.index, 1);
+    // reorder the index of the objects in the array
+    items.forEach((item, index) => {
+      item.index = index;
+    });
+  });
+  // Store in local storage
+  localStorage.setItem('tasks', JSON.stringify(items));
+  // Refresh the task list.
+  displayList();
 });

@@ -64,6 +64,10 @@ input:focus {
   list-style-type: none;
 }
 
+.check-mark {
+  text-decoration: line-through;
+}
+
 .list-item-hover {
   background-color: #edac1f;
 }
