@@ -1,16 +1,16 @@
-import "./styles.css";
-import items from "./modules/tasks.js";
-import { Actions } from "./modules/actions.js";
+import './styles.css';
+import items from './modules/tasks.js';
+import { Actions } from './modules/actions.js';
 
-const listItems = document.getElementById("todo-items");
+const listItems = document.getElementById('todo-items');
 const displayList = () => {
-  let listHtml = "";
+  let listHtml = '';
   items.forEach((item) => {
-    let boxes = "";
-    let checkMark = "";
+    let boxes = '';
+    let checkMark = '';
     if (item.completed === true) {
-      boxes = "checked";
-      checkMark = "check-mark";
+      boxes = 'checked';
+      checkMark = 'check-mark';
     }
     listHtml += `
                <li id="list-${item.index}">
@@ -34,25 +34,25 @@ const displayList = () => {
   listItems.innerHTML = listHtml;
 
   // Create event listener for list-item class
-  const allTasks = document.getElementsByClassName("list-item");
+  const allTasks = document.getElementsByClassName('list-item');
 
   // Create event listener for allTasks
   for (let i = 0; i < allTasks.length; i += 1) {
     // get all li
-    const lis = document.getElementsByTagName("li");
+    const lis = document.getElementsByTagName('li');
     // create event listner for all li
-    lis[i].addEventListener("mouseover", () => {
-      lis[i].classList.add("list-item-hover");
+    lis[i].addEventListener('mouseover', () => {
+      lis[i].classList.add('list-item-hover');
       Actions.showTrash(i);
     });
 
-    lis[i].addEventListener("mouseout", () => {
+    lis[i].addEventListener('mouseout', () => {
       Actions.hideTrash(i);
-      lis[i].classList.remove("list-item-hover");
+      lis[i].classList.remove('list-item-hover');
     });
 
-    allTasks[i].addEventListener("keypress", (event) => {
-      if (event.key === "Enter") {
+    allTasks[i].addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
         event.preventDefault();
         // Get the value of the user-input
         const { value } = event.target;
@@ -65,7 +65,7 @@ const displayList = () => {
     });
 
     // Create an event listener on the trash icon
-    document.getElementById(`trash-${i}`).addEventListener("click", () => {
+    document.getElementById(`trash-${i}`).addEventListener('click', () => {
       if (Actions.removeTask(i)) {
         displayList();
       }
@@ -73,9 +73,9 @@ const displayList = () => {
 
     // Let's add an event listener to the checkbox
     const checkbox = document.getElementById(`checkbox-${i}`);
-    checkbox.addEventListener("click", () => {
+    checkbox.addEventListener('click', () => {
       // add checked class to the input
-      document.querySelector(`#task-desc-${i}`).classList.add("checked-mark");
+      document.querySelector(`#task-desc-${i}`).classList.add('checked-mark');
 
       if (checkbox.checked) {
         items[i].completed = true;
@@ -83,7 +83,7 @@ const displayList = () => {
         items[i].completed = false;
       }
       // Update the items in our array
-      localStorage.setItem("tasks", JSON.stringify(items));
+      localStorage.setItem('tasks', JSON.stringify(items));
       displayList();
     });
   }
@@ -91,10 +91,10 @@ const displayList = () => {
 
 displayList();
 
-const addList = document.getElementById("addlist");
+const addList = document.getElementById('addlist');
 
-addList.addEventListener("keypress", (event) => {
-  if (event.key === "Enter") {
+addList.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
     event.preventDefault();
     const { value } = addList;
     // Add value to task array
@@ -104,22 +104,20 @@ addList.addEventListener("keypress", (event) => {
       index: items.length,
     });
     // Clear input
-    addList.value = "";
+    addList.value = '';
 
     // Store in local storage
-    localStorage.setItem("tasks", JSON.stringify(items));
+    localStorage.setItem('tasks', JSON.stringify(items));
 
     displayList();
   }
 });
 
 // Create an event listener for the clear all button
-const clearAll = document.getElementById("clear-all");
-clearAll.addEventListener("click", () => {
+const clearAll = document.getElementById('clear-all');
+clearAll.addEventListener('click', () => {
   // Remove al completed tasks
-  const clear = items.filter((item) => {
-    return item.completed === true;
-  });
+  const clear = items.filter((item) => item.completed === true);
 
   clear.forEach((item) => {
     items.splice(item.index, 1);
@@ -129,7 +127,7 @@ clearAll.addEventListener("click", () => {
     });
   });
   // Store in local storage
-  localStorage.setItem("tasks", JSON.stringify(items));
+  localStorage.setItem('tasks', JSON.stringify(items));
   // Refresh the task list.
   displayList();
 });
