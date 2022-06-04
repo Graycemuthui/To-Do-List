@@ -1,4 +1,4 @@
-import items from './tasks.js';
+import items from "./tasks.js";
 
 /* eslint-disable */
 export class Actions {
