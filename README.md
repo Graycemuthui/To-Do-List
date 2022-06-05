@@ -1,3 +1,7 @@
+### Screenshot
+ Here is a screenshot for the project.
+![Screenshot from 2022-06-04 13-03-22](https://user-images.githubusercontent.com/95374858/171994970-842acf4c-1534-4ac0-84ce-7411ac4a6a47.png)
+
 ### To-Do-List Project
 
 - This is a Microverse project that entails a to-do-list.
