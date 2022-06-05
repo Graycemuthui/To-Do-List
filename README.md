@@ -19,7 +19,7 @@
 
 ### Deployment
 
-- Here is the live link to view this project [link](https://graycemuthui.github.io/Task-List/)
+- Here is the live link to view this project [link](https://graycemuthui.github.io/To-Do-List/)
 
 ### Setup
 
