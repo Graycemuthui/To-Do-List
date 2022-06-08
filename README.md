@@ -11,8 +11,8 @@
 - HTML & CSS & Javascript
 
 ## Getting Started
-
-- Clone this repo to get started.
+- Here is the link to the repo [link](https://github.com/Graycemuthui/To-Do-List)
+- Clone this repo to get started by using git clone(insert the repo here)
 
 ### Prerequisites
 
