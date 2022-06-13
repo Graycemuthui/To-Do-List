@@ -4,7 +4,7 @@
 
 ### To-Do-List Project
 
-- This is a Microverse project that entails a to-do-list.
+- This is a Microverse project that entails a to-do-list which one is able to add and remove tasks. 
 
 ## Built With
 
